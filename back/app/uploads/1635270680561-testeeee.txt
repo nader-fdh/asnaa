@@ -1,0 +1,13 @@
+  public CategoryDTO save(CategoryDTO categoryDTO) {
+        log.debug("Request to save Category : {}", categoryDTO);
+        User  user =  userService.getUserWithAuthorities() .get();
+        categoryDTO.setCreated_by(user.getId());
+        Category category = categoryMapper.toEntity(categoryDTO);
+        category = categoryRepository.save(category);
+        return categoryMapper.toDto(category);
+    }
+
+ this.userService =userService ;
+,UserService userService
+
+ private final  UserService userService ;

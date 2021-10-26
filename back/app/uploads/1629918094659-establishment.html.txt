@@ -1,0 +1,148 @@
+<section id="gallery" class="gallery">
+   <div class="container-4 w-container">
+       <div class="post-wrapper paraa">
+             <h3>
+             <strong   jhiTranslate="funSportForAllApp.establishment.home.title" class="text-primary">Establishments</strong>
+           </h3>	
+           </div>	
+         </div>		
+         </section>
+   
+    
+  
+   <section id="gallery" class="gallery">
+      <div class="container-4 w-container">
+          <div class="post-wrapper paraa">
+        <div class=" row  ">
+         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+            <div class="notice d-none d-sm-block" >
+               <strong id="page-heading">
+                <br>
+                   <button id="jh-create-entity" class="btn btn-primary btn-sm float-right jh-create-entity create-establishment" [routerLink]="['/establishment/new']">
+                      <fa-icon [icon]="'plus'"></fa-icon>
+                   <span  jhiTranslate="funSportForAllApp.establishment.home.createLabel">
+                    Create a new Establishment
+                   </span>
+                   </button>
+                
+               
+       </div>
+          
+            <br> <br> 
+         </div>
+             <jhi-alert></jhi-alert>
+             <br/>
+            <div class="alert alert-warning" *ngIf="establishments?.length === 0">
+               <span jhiTranslate="funSportForAllApp.establishment.home.notFound">No establishments found</span>
+            </div>
+            <div class=" row col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+
+            <div class="table-responsive" *ngIf="establishments?.length > 0">
+               
+               <table class="table table-striped" aria-describedby="page-heading" width="100%">
+                    <thead>
+                    <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+                     <th style = "width :12%" jhiSortBy="name"><span jhiTranslate="funSportForAllApp.establishment.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                     <th style = "width :12%" jhiSortBy="code"><span jhiTranslate="funSportForAllApp.establishment.code">Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                     <th style = "width :20%" jhiSortBy="description"><span jhiTranslate="funSportForAllApp.establishment.description">Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                     <th style = "width :12%"  jhiSortBy="email"><span jhiTranslate="funSportForAllApp.establishment.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                     <th style = "width :12%" jhiSortBy="adress"><span jhiTranslate="funSportForAllApp.establishment.adress">Adress</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                    <th style = "width :12%" jhiSortBy="validated"><span jhiTranslate="funSportForAllApp.establishment.validated">validated</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                     <th style = "width :10%" jhiSortBy="cityId"><span jhiTranslate="funSportForAllApp.establishment.city">City</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                     <th style = "width :10%" jhiSortBy="activityId"><span jhiTranslate="funSportForAllApp.establishment.activity">Activity</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                     <th></th>
+                    </tr>
+                    </thead>
+                    <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                     <tr *ngFor="let establishment of establishments ;trackBy: trackId">
+                        <td style = "width :12%" data-placement="right" title="{{establishment.name}}">{{substringAdapter(establishment.name)}}</td>
+                        <td style = "width :12%" data-placement="right" title="{{establishment.code}}">{{substringAdapter(establishment.code)}}</td>
+                        <td style = "width :20%" data-placement="right" title="{{establishment.description}}">{{substringAdapter(establishment.description)}}</td>
+                        <td style = "width :12%" data-toggle="tooltip" data-placement="right" title="{{establishment.email}}">{{substringAdapter(establishment.email)}}</td>
+                        <td style = "width :12%" data-placement="right" title="{{establishment.adress}}">{{substringAdapter(establishment.adress)}}</td>
+                        
+                        <td style = "width :12%">{{establishment.validated}}</td>
+                        <td style = "width :10%">
+                            <div *ngIf="establishment.cityId">
+                               <a [routerLink]="['/city', establishment.cityId , 'view' ]" >{{establishment.cityName}}</a>
+                            </div>
+                        </td>
+                
+                        <td style = "width :10%">
+                           <div *ngIf="establishment.activityId">
+                               <a [routerLink]="['/activity', establishment.activityId , 'view' ]" >{{establishment.activityName}}</a>
+                           </div>
+                        </td>
+                       <td class="text-right">
+                            <div class="btn-group">
+                              <button type="submit"
+                              [routerLink]="['/establishment', establishment.id, 'edit']"
+                                class="btn btn-sm">
+                               <fa-icon class="btnSpan" [icon]="'pencil-alt'"></fa-icon>
+                              
+                             </button>
+                               
+                                <div >
+                                 
+                                 <div  class="iconToggle"  >
+                                    <button (click)="hiddenItems[establishment.id]=!hiddenItems[establishment.id]"  ><fa-icon [icon]="faEllipsisV"></fa-icon></button>
+                                 </div>
+                                 <div *ngIf="hiddenItems[establishment.id]"  class="dropdownButton">
+                                  
+                                   <button type="submit"
+                                   [routerLink]="['/establishment', establishment.id, 'view' ]"
+                                     class="btn btn-light btn-sm">
+                                     <fa-icon  class="btnSpan" id="button" [icon]="'eye'"></fa-icon>
+                                       <span class="btnSpan"  jhiTranslate="entity.action.view">View</span>
+                                </button>
+                              
+                                   <button type="submit" *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_SUPER_ADMIN']"
+                                      [routerLink]="['/contract/new']"
+                                      class="btn btn-light btn-sm">
+                                     <fa-icon class="btnSpan" [icon]="'plus'"></fa-icon>
+                                    <span class="btnSpan" jhiTranslate="funSportForAllApp.establishment.action.addContract"></span>
+                                    </button>
+                                    <button type="submit" *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_SUPER_ADMIN','ROLE_MANAGER']"
+                                     (click)="openContractsPopUp(establishment.id)"
+                                      class="btn btn-light btn-sm">
+                                     <fa-icon class="btnSpan" [icon]="'copyright'"></fa-icon>
+                                    <span class="btnSpan" jhiTranslate="funSportForAllApp.establishment.action.contract"></span>
+                                     </button>
+                                   <button type="submit"
+                                   [routerLink]="['/establishment-schedule', establishment.id, 'edit']"
+                                   class="btn btn-light btn-sm">
+                                  <fa-icon class="btnSpan" [icon]="'calendar'"></fa-icon>
+                                   <span class="btnSpan" jhiTranslate="entity.action.planning"></span>
+                                  </button>
+                               </div>
+
+                                </div>
+                             
+                               
+                               
+                            </div>
+                            
+                       </td>
+                       <td>
+                     
+                       </td>
+                    </tr>
+                  </tbody>
+            </table>
+         </div>
+      </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+               <br> <br> <br>
+             </div>
+           
+        </div>
+    </div>
+</div>
+</section>
+<section id="gallery" class="gallery">
+   <div class="container-4 w-container">
+       <div class="post-wrapper paraa">
+          <br>
+       </div>
+    </div>
+</section>

@@ -1,0 +1,29 @@
+.bin {
+  font-size: 22px;
+}
+.bin:hover {
+  color: red;
+}
+.MovieCard {
+  background-color: black;
+  color: white;
+  border-radius: 3px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 1);
+  width: 200px;
+  margin: 0.55rem;
+}
+.Movie-Info h2 {
+  font-family: 'Arial Narrow Bold', sans-serif;
+  font-size: 20px;
+}
+.Movie-Info h4 {
+  font-size: 13px;
+  color: rgb(139, 139, 133);
+}
+.MovieCard img {
+  width: 100%;
+}
+.MovieCard:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}

@@ -1,0 +1,71 @@
+{
+  "blogs": [
+    {
+      "title": "Best Technology Android Apps",
+      "fullwidth": true,
+      "url": "/blog-details",
+      "author": "Admin",
+      "date": "20 Nov. 2018",
+      "comments": "05 Comments",
+      "image": "/assets/img/blog/1.png",
+      "content": "Why I say old chap that is, spiffing jolly good a load of old tosh spend a penny tosser arse over tit, excuse my French owt to do with me up the kyver matie boy at public school. Cuppa argy-bargy young delinquent spend a penny James Bond skive off lurgy, tosser fanny around dropped a Why I say old chap that is, spiffing jolly good a load of old tosh spend a penny tosser arse over tit, excuse my French owt to do with me up the kyver matie boy at public school."
+    },
+    {
+      "title": "Best 20 Tips For Technology",
+      "url": "/blog-details",
+      "author": "Admin",
+      "date": "20 Nov. 2018",
+      "comments": "05 Comments",
+      "image": "/assets/img/blog/2.png",
+      "content": "Why I say old chap that is, spiffing jolly good a load of old tosh spend a penny tosser arse over tit, excuse my French owt to do with me up the kyver matie boy at public school. Cuppa argy-bargy young delinquent spend a penny James Bond skive off lurgy, tosser fanny around dropped a Why I say old chap that is, spiffing jolly good a load of old tosh spend a penny tosser arse over tit, excuse my French owt to do with me up the kyver matie boy at public school."
+    },
+    {
+      "title": "Top 20 Quotes On Technology",
+      "url": "/blog-details",
+      "author": "Admin",
+      "date": "20 Nov. 2018",
+      "comments": "05 Comments",
+      "image": "/assets/img/blog/3.png",
+      "content": "Why I say old chap that is, spiffing jolly good a load of old tosh spend a penny tosser arse over tit, excuse my French owt to do with me up the kyver matie boy at public school. Cuppa argy-bargy young delinquent spend a penny James Bond skive off lurgy, tosser fanny around dropped a Why I say old chap that is, spiffing jolly good a load of old tosh spend a penny tosser arse over tit, excuse my French owt to do with me up the kyver matie boy at public school."
+    },
+    {
+      "title": "Top 10 Ways To Buy A Used Technology",
+      "fullwidth": true,
+      "url": "/blog-details",
+      "author": "Admin",
+      "date": "20 Nov. 2018",
+      "category": "Apps UI",
+      "comments": "05 Comments",
+      "image": "/assets/img/blog/41.png",
+      "content": "Why I say old chap that is, spiffing jolly good a load of old tosh spend a penny tosser arse over tit, excuse my French owt to do with me up the kyver matie boy at public school. Cuppa argy-bargy young delinquent spend a penny James Bond skive off lurgy, tosser fanny around dropped a Why I say old chap that is, spiffing jolly good a load of old tosh spend a penny tosser arse over tit, excuse my French owt to do with me up the kyver matie boy at public school."
+    },
+    {
+      "title": "Top 20 Funny Technology Quotes",
+      "url": "/blog-details",
+      "author": "Admin",
+      "date": "20 Nov. 2018",
+      "category": "AppFeatures",
+      "comments": "05 Comments",
+      "image": "/assets/img/blog/51.png",
+      "content": "Why I say old chap that is, spiffing jolly good a load of old tosh spend a penny tosser arse over tit, excuse my French owt to do with me up the kyver matie boy at public school. Cuppa argy-bargy young delinquent spend a penny James Bond skive off lurgy, tosser fanny around dropped a Why I say old chap that is, spiffing jolly good a load of old tosh spend a penny tosser arse over tit, excuse my French owt to do with me up the kyver matie boy at public school."
+    },
+    {
+      "title": "The A - Z Of Technology",
+      "url": "/blog-details",
+      "author": "Admin",
+      "date": "20 Nov. 2018",
+      "category": "AppFeatures",
+      "comments": "05 Comments",
+      "image": "/assets/img/blog/61.png",
+      "content": "Why I say old chap that is, spiffing jolly good a load of old tosh spend a penny tosser arse over tit, excuse my French owt to do with me up the kyver matie boy at public school. Cuppa argy-bargy young delinquent spend a penny James Bond skive off lurgy, tosser fanny around dropped a Why I say old chap that is, spiffing jolly good a load of old tosh spend a penny tosser arse over tit, excuse my French owt to do with me up the kyver matie boy at public school."
+    }
+  ],
+  "pagetitle": {
+    "blogtitle": "Blog",
+    "blog2coltitle": "Blog 2 column",
+    "blog3coltitle": "Blog 3 column",
+    "blogfullleftsidetitle": "Blog Full Left Sidebar",
+    "blogfullrightsidetitle": "Blog Full Right Sidebar"
+  }
+
+}

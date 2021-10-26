@@ -1,0 +1,262 @@
+{
+	"products":{
+		"title":"Lets's go ",
+		"subtitle":"Shopping",
+		"description":"Our support team will get assistance from AI-powered suggestions, making it quicker than ever to support requests. Our support team will get from AI-powered suggestions.",
+		"items":[
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"#",
+				"image":"assets/img/shop/1.png"
+
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"#",
+				"image":"assets/img/shop/2.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"#",
+				"image":"assets/img/shop/3.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"#",
+				"image":"assets/img/shop/4.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"#",
+				"image":"assets/img/shop/5.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"#",
+				"image":"assets/img/shop/6.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"#",
+				"image":"assets/img/shop/7.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"#",
+				"image":"assets/img/shop/8.png"
+			}
+		]
+	},
+	"productsv2":{
+		"title":"We are selling ",
+		"subtitle":"POS Device",
+		"description":"Our support team will get assistance from AI-powered suggestions, making it quicker than ever to support requests. Our support team will get from AI-powered suggestions.",
+		"items":[
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"#",
+				"image":"assets/img/shop/12.png"
+
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"#",
+				"image":"assets/img/shop/13.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"#",
+				"image":"assets/img/shop/14.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"#",
+				"image":"assets/img/shop/15.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"#",
+				"image":"assets/img/shop/16.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"#",
+				"image":"assets/img/shop/17.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"#",
+				"image":"assets/img/shop/18.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"#",
+				"image":"assets/img/shop/19.png"
+			}
+		]
+	},
+	"shop":{
+		"items":[
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"//shop-details",
+				"sticker":"d-none",
+				"image":"assets/img/shop/1.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"/shop-details",
+				"image":"assets/img/shop/2.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"/shop-details",
+				"sticker":"d-none",
+				"image":"assets/img/shop/3.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"/shop-details",
+				"sticker":"d-none",
+				"image":"assets/img/shop/4.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"/shop-details",
+				"sticker":"d-none",
+				"image":"assets/img/shop/5.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"/shop-details",
+				"image":"assets/img/shop/6.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"/shop-details",
+				"sticker":"d-none",
+				"image":"assets/img/shop/7.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"/shop-details",
+				"sticker":"d-none",
+				"image":"assets/img/shop/8.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"/shop-details",
+				"image":"assets/img/shop/1.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"/shop-details",
+				"sticker":"d-none",
+				"image":"assets/img/shop/9.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"/shop-details",
+				"sticker":"d-none",
+				"image":"assets/img/shop/10.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"/shop-details",
+				"sticker":"d-none",
+				"image":"assets/img/shop/11.png"
+			}
+		]
+	},
+	"related_product":{
+		"items":[
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"//shop-details",
+				"sticker":"d-none",
+				"image":"assets/img/shop/1.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"/shop-details",
+				"image":"assets/img/shop/2.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"/shop-details",
+				"sticker":"d-none",
+				"image":"assets/img/shop/3.png"
+			},
+			{
+				"name":"Stylish Watch Red color",
+				"olderprice":"$190.00",
+				"newerprice":"$160.00",
+				"url":"/shop-details",
+				"sticker":"d-none",
+				"image":"assets/img/shop/4.png"
+			}
+		]
+	}
+}

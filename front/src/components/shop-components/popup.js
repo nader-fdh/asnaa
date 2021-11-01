@@ -36,16 +36,26 @@ const Popup = props => {
                         <td className="cart-product-price text-center">{el.prix} </td>
                         <td className="text-center">
                           <div className="quantity-wrap">
+                            <input
+                              type="number"
+                              id="quantity"
+                              title="Qty"
+                              className="input-text qty text"
+                              name="quantity"
+                              min="1"
+                              max="5"
+                            />
                             <div className="quantity">
-                              <input
+                              {/* <input
                                 type="number"
+                                inputmode="numeric"
                                 step={1}
                                 min={0}
                                 max={100}
                                 defaultValue={1}
                                 title="Qty"
                                 className="input-text qty text"
-                              />
+                              /> */}
                             </div>
                           </div>
                         </td>

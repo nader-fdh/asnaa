@@ -79,7 +79,7 @@ const Navbar = () => {
                 </li>
 
                 <li style={{ fontSize: '13px' }}>
-                  <a href="/shop">shop</a>
+                  <Link to="/shop">shop</Link>
                 </li>
                 <li style={{ fontSize: '13px' }}>
                   <Link to="/contact">Contact</Link>
@@ -95,9 +95,9 @@ const Navbar = () => {
           ) : (
             <div className="collapse navbar-collapse" id="Riyaqas_main_menu">
               <div className="logo-wrapper desktop-logo">
-                <a href="/" className="logo">
+                <Link to="/" className="logo">
                   <img src={'assets/img/logo.png'} alt={imgattr} width="150" height="40" />
-                </a>
+                </Link>
               </div>
               <ul className="navbar-nav">
                 <li style={{ fontSize: '13px' }}>
@@ -108,7 +108,7 @@ const Navbar = () => {
                 </li>
 
                 <li style={{ fontSize: '13px' }}>
-                  <a href="/shop">shop</a>
+                  <Link to="/shop">shop</Link>
                 </li>
                 <li style={{ fontSize: '13px' }}>
                   <Link to="/contact">Contact</Link>

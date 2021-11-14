@@ -69,7 +69,7 @@ const App = () => {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/shop" component={Shop} />
             <Route exact path="/shop-details/:id" component={ShopDetails} />
-            <Route exact path="/Checkout/:id" component={Checkout} />
+            <Route path="/Checkout" component={Checkout} />
 
             <ThemeContextWrapper>
               <BackgroundColorWrapper>

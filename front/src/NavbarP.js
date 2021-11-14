@@ -66,9 +66,9 @@ const NavbarP = () => {
               </Link>
             </li>
             <li>
-              <a href="/login" className="nav-link" onClick={logOut}>
+              <Link to={'/login'} className="nav-link" onClick={logOut}>
                 LogOut
-              </a>
+              </Link>
             </li>
           </div>
         ) : (

@@ -1,13 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getBasketTotal } from '../../reducers/reducerBasket';
+import CurrencyFormat from 'react-currency-format';
 import { useStateValue } from '../../StateProvider';
 import './popupStyle.css';
+import Subtotal from './Subtotal';
 
 const Popup = props => {
   const [{ basket, user }, dispatchb] = useStateValue();
+
+  const removeFromBasket = () => {
+    // remove the item from the basket
+    dispatchb({
+      type: 'REMOVE_FROM_BASKET',
+      id: basket.id,
+    });
+  };
   console.log('popup', basket);
   return (
-    <div className="popup-box">
+    <div className="popup-box" style={{ marginTop: '300px !important' }}>
       <div className="box">
         <span className="close-icon" onClick={props.handleClose}>
           x
@@ -17,75 +28,47 @@ const Popup = props => {
             <div className="checkout-title text-center mb-0">
               <h3 style={{ color: 'black' }}>Your Order</h3>
             </div>
-            <table className="table">
-              <tbody>
-                {basket !== null
-                  ? basket.map(el => (
-                      <tr style={{ backgroundColor: 'beige' }}>
-                        <td>
-                          <div className="media single-cart-product">
-                            <div className="media-left">
+            <div className="orderBody">
+              <div className="row">
+                <div className="col-md-7">
+                  {basket !== null
+                    ? basket.map(el => (
+                        <div className="cardContent">
+                          <div className="cardSinglePro ">
+                            <div className="media-left imageStyle">
                               <img src={el.image} alt="img" />
                             </div>
-                            <div className="media-body">
-                              <span> {el.name} </span>
-                              <p> {el.prix} </p>
+                            <div className="media-body imageStyle">
+                              <span>
+                                <h3> {el.name}</h3>
+                              </span>
+                              <p> {el.prix} TND </p>
                             </div>
                           </div>
-                        </td>
-                        <td className="cart-product-price text-center">{el.prix} </td>
-                        <td className="text-center">
-                          <div className="quantity-wrap">
-                            <input
-                              type="number"
-                              id="quantity"
-                              title="Qty"
-                              className="input-text qty text"
-                              name="quantity"
-                              min="1"
-                              max="5"
-                            />
-                            <div className="quantity">
-                              {/* <input
-                                type="number"
-                                inputmode="numeric"
-                                step={1}
-                                min={0}
-                                max={100}
-                                defaultValue={1}
-                                title="Qty"
-                                className="input-text qty text"
-                              /> */}
-                            </div>
-                          </div>
-                        </td>
-                        <td className="cart-product-price text-center">{el.prix}</td>
-                        <td className="text-center">
-                          <div className="cart-close">
-                            <span className="ti-close" />
-                          </div>
-                        </td>
-                      </tr>
-                    ))
-                  : true}
-              </tbody>
-            </table>
-            <div className="total-shapping-area-wrap">
-              <div className="total-shapping-area">
-                <div className="charge">
-                  <span>Shipping Charge:</span>
-                  <span className="amount float-right">$1.00</span>
+                        </div>
+                      ))
+                    : true}
                 </div>
-                <div className="total-amount">
-                  <span>Total:</span>
-                  <span className="amount float-right">$451.00</span>
+
+                <div className="col-md-5 secondSection">
+                  <Subtotal />
+
+                  <div className="">
+                    <div className="total-shapping-area">
+                      <div className="charge">
+                        <a onClick={props.handleClose} className="boutton">
+                          Continuez vos achats
+                        </a>
+                      </div>
+                      <div className="total-amount">
+                        <Link to="/checkout" className="boutton">
+                          Allez aux checkout
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="btn-wrapper text-center pd-top-170 riyaqas-nav">
-              <Link className="btn btn-green" to="/checkout">
-                Proceed to Checkout
-              </Link>
             </div>
           </div>
         </div>

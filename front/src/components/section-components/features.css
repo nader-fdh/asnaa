@@ -1,0 +1,29 @@
+.widthPa {
+  width: 40% !important;
+}
+.widthPaV {
+  width: 12% !important;
+  margin-right: 10px;
+}
+
+.widthPaM {
+  width: 35%;
+}
+.widthPaC {
+  width: 20%;
+}
+
+@media only screen and (max-width: 754px) {
+  .widthPa {
+    width: 100% !important;
+  }
+  .widthPaV {
+    width: 100% !important;
+  }
+  .widthPaM {
+    width: 100%;
+  }
+  .widthPaC {
+    width: 100%;
+  }
+}

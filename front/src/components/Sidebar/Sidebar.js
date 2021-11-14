@@ -60,11 +60,11 @@ function Sidebar(props) {
   if (logo !== undefined) {
     if (logo.outterLink !== undefined) {
       logoImg = (
-        <a href={logo.outterLink} className="simple-text logo-mini" target="_blank" onClick={props.toggleSidebar}>
+        <Link to={logo.outterLink} className="simple-text logo-mini" target="_blank" onClick={props.toggleSidebar}>
           <div className="logo-img">
             <img src={logo.imgSrc} alt="assnaa-logo" />
           </div>
-        </a>
+        </Link>
       );
       logoText = (
         <a href={logo.outterLink} className="simple-text logo-normal" target="_blank" onClick={props.toggleSidebar}>

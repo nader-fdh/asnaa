@@ -1,13 +1,6 @@
-import {
-  REGISTER_SUCCESS,
-  REGISTER_FAIL,
-  LOGIN_SUCCESS,
-  LOGIN_FAIL,
-  LOGOUT,
-  SET_MESSAGE,
-} from "./types";
+import { REGISTER_SUCCESS, REGISTER_FAIL, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, SET_MESSAGE } from './types';
 
-import AuthService from "../services/auth.service";
+import AuthService from '../services/auth.service';
 
 export const register = (
   username,
@@ -18,7 +11,7 @@ export const register = (
   codepostal,
 
   password
-) => (dispatch) => {
+) => dispatch => {
   return AuthService.register(
     username,
     lastname,
@@ -29,7 +22,7 @@ export const register = (
 
     password
   ).then(
-    (response) => {
+    response => {
       dispatch({
         type: REGISTER_SUCCESS,
       });
@@ -41,13 +34,8 @@ export const register = (
 
       return Promise.resolve();
     },
-    (error) => {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
+    error => {
+      const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
 
       dispatch({
         type: REGISTER_FAIL,
@@ -63,9 +51,9 @@ export const register = (
   );
 };
 
-export const login = (username, password) => (dispatch) => {
+export const login = (username, password) => dispatch => {
   return AuthService.login(username, password).then(
-    (data) => {
+    data => {
       dispatch({
         type: LOGIN_SUCCESS,
         payload: { user: data },
@@ -73,13 +61,8 @@ export const login = (username, password) => (dispatch) => {
 
       return Promise.resolve();
     },
-    (error) => {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
+    error => {
+      const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
 
       dispatch({
         type: LOGIN_FAIL,
@@ -95,7 +78,7 @@ export const login = (username, password) => (dispatch) => {
   );
 };
 
-export const logout = () => (dispatch) => {
+export const logout = () => dispatch => {
   AuthService.logout();
 
   dispatch({

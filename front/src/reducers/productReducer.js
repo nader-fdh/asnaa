@@ -1,11 +1,14 @@
 import {
   GET_PRODUCT_SUCCESS,
+  GET_BASKET_SUCCESS,
   GET_USER_SUCCESS,
   GET_DEVIS_SUCCESS,
   GET_DEVIS_FAIL,
   GET_ALLDEVIS_SUCCESS,
   GET_PRODUCT_FAIL,
+  GET_BASKET_FAIL,
   GET_SINGLE_PRODUCT_SUCCESS,
+  GET_SINGLE_BASKET_SUCCESS,
   GET_DEMANDEACHAT_SUCCESS,
 } from '../actions/types';
 
@@ -34,6 +37,7 @@ const productReducer = (state = initState, action) => {
         ...state,
         products: action.payload,
       };
+
     case GET_DEVIS_SUCCESS:
       return {
         ...state,
@@ -59,6 +63,7 @@ const productReducer = (state = initState, action) => {
         ...state,
         product: action.payload,
       };
+
     default:
       return state;
   }

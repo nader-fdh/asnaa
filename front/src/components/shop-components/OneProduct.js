@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../../StateProvider';
 
-const OneProduct = ({ _id, name, prix, file }) => {
+const OneProduct = ({ _id, name, prix, description, file }) => {
+  const [files, setFiles] = useState([]);
+
   const [{ basket }, dispatch] = useStateValue();
   console.log('hhhhhhhhhhh', basket);
   const addToBasket = () => {

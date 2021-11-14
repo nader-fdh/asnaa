@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import sectiondata from '../../data/sections.json';
 import parse from 'html-react-parser';
+import './features.css';
 
 class Features extends Component {
   render() {
@@ -28,7 +29,7 @@ class Features extends Component {
                       {/* <img className="media-left" src={publicUrl + 'assets/img/features/1.png'} alt="feature" /> */}
                       <div className="media-body">
                         <h6 style={{ fontSize: '20px' }}>Vision :</h6>
-                        <p>
+                        <p className="widthPaV">
                           Notre vision c’est de faciliter la fabrication des produits et de les rendre accessiblesà tout le monde quel que
                           soit pour particuliers ou professionnels . Notre devoir ce n’est pas seulement de fabriquer mais aussi
                           l’accompagnement des projets et la proposition des meilleurs solutions convenables à votre besoins
@@ -40,7 +41,10 @@ class Features extends Component {
                     <div className="media border-radius-2">
                       <div className="media-body">
                         <h6 style={{ fontSize: '20px' }}>Qualité</h6>
-                        <p> Note équipe vous assoie la meilleure qualité de services et de fabrication que vous attendez</p>
+                        <p className="widthPa">
+                          {' '}
+                          Note équipe vous assoie la meilleure qualité de services et de fabrication que vous attendez
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -52,7 +56,7 @@ class Features extends Component {
                     <div className="media border-radius-3">
                       <div className="media-body">
                         <h6 style={{ fontSize: '20px' }}>Mission</h6>
-                        <p>
+                        <p className="widthPaM">
                           La mission de ASNAA est d’intègre la fabrication dans le monde du digitale avec la meilleure technologie et
                           expertise.
                         </p>
@@ -63,7 +67,7 @@ class Features extends Component {
                     <div className="media border-radius-4">
                       <div className="media-body">
                         <h6 style={{ fontSize: '20px' }}>Confidentialité</h6>
-                        <p>
+                        <p className="widthPaC">
                           Un accord de confidentialité vise à régir la confidentialité des informations échangées entre ASNAA et ses clients
                           relativement à un projet ou même une petite fabrication
                         </p>

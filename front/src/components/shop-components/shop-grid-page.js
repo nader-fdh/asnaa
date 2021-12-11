@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProduct } from '../../actions/productAction';
 import { useStateValue } from '../../StateProvider';
 import OneProduct from './OneProduct';
+import Page_header from '../global-components/page-header';
 
 function ShopPage() {
   const dispatch = useDispatch();
@@ -21,10 +22,35 @@ function ShopPage() {
   useEffect(() => {
     dispatch(getProduct());
   }, []);
+  let publicUrl = process.env.PUBLIC_URL + '/';
+  const inlineStyle = {
+    backgroundImage: 'url(' + publicUrl + 'assets/img/page-title-bg.png)',
+  };
   return (
     <>
-      <div style={{ backgroundColor: 'beige' }}>
-        <Navbar />
+      <Navbar />
+      <div style={{ marginTop: '-30px' }}>
+        <div>
+          <div className="breadcrumb-area" style={inlineStyle}>
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-12">
+                  <div className="breadcrumb-inner">
+                    <h1 className="page-title">Boutique</h1>
+                    <ul className="page-list">
+                      <li>
+                        <Link to="/">Retourner au accueil</Link>
+                      </li>
+                      <li></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style={{ backgroundColor: 'white' }}>
         <div className="shop-page-area pd-top-120">
           <div className="container">
             <div className="row custom-gutters-60">

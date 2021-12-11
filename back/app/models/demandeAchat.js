@@ -8,8 +8,8 @@ const DemeandeAchatSchema = mongoose.Schema({
   ville: String,
   phoneNumber: Number,
   codePostal: Number,
-  productName: String,
-  productId: String,
+  total: Number,
+  productId: Array,
   createdAt: Date,
 });
 

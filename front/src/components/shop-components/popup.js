@@ -8,6 +8,21 @@ import Subtotal from './Subtotal';
 
 const Popup = props => {
   const [{ basket, user }, dispatchb] = useStateValue();
+  let totalA = [];
+  let total = 0;
+
+  const calc = () => {
+    basket.map(el => {
+      totalA.push(el.prix);
+    });
+
+    if (totalA !== null) {
+      totalA.map(el => {
+        total = total + el;
+      });
+    }
+    return Number.parseFloat(total).toFixed(2);
+  };
 
   const removeFromBasket = () => {
     // remove the item from the basket
@@ -16,7 +31,7 @@ const Popup = props => {
       id: basket.id,
     });
   };
-  console.log('popup', basket);
+  console.log('popup', props);
   return (
     <div className="popup-box" style={{ marginTop: '300px !important' }}>
       <div className="box">
@@ -39,7 +54,7 @@ const Popup = props => {
                               <img src={el.image} alt="img" />
                             </div>
                             <div className="media-body imageStyle">
-                              <span>
+                              <span onClick={removeFromBasket}>
                                 <h3> {el.name}</h3>
                               </span>
                               <p> {el.prix} TND </p>
@@ -51,14 +66,21 @@ const Popup = props => {
                 </div>
 
                 <div className="col-md-5 secondSection">
-                  <Subtotal />
+                  <div style={{ color: 'black' }} className="row">
+                    <div className="col-md-6">
+                      <h4 style={{ color: 'black' }}>total</h4>
+                    </div>
+                    <div className="col-md-6">
+                      <h4 style={{ color: 'black' }}>{calc()}</h4>
+                    </div>
+                  </div>
 
                   <div className="">
                     <div className="total-shapping-area">
                       <div className="charge">
-                        <a onClick={props.handleClose} className="boutton">
+                        <Link to="/shop" className="boutton" onClick={props.handleClose}>
                           Continuez vos achats
-                        </a>
+                        </Link>
                       </div>
                       <div className="total-amount">
                         <Link to="/checkout" className="boutton">

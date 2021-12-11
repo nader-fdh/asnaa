@@ -6,16 +6,20 @@ import { useHistory } from 'react-router-dom';
 import { useStateValue } from '../../StateProvider';
 import { getBasketTotal } from '../../reducers/reducerBasket';
 
-const Subtotal = () => {
+const Subtotal = props => {
   const history = useHistory();
   const [{ basket }, dispatch] = useStateValue();
+  const test = () => {
+    console.log('aaaaaaaaaaa', props.prix);
+  };
+
   return (
     <div className="subtotal">
-      <CurrencyFormat
+      {/* <CurrencyFormat
         renderText={value => (
           <>
-            <p>
-              Subtotal ({basket.length} items) : <strong> {value} </strong>
+            <p style={{ color: 'black !important' }}>
+              Subtotal ({basket.length} items) : <strong> {p} </strong>
             </p>
             <small className="subtotal_gift">
               <input type="checkbox" /> This order contains a gift
@@ -27,8 +31,8 @@ const Subtotal = () => {
         displayType={'text'}
         thousandSeparator={true}
         prefix={'£'}
-      />
-      <button onClick={e => history.push('/payment')}>Preceed to checkout</button>
+      /> */}
+      <button onClick={test}>Preceed to checkout</button>
     </div>
   );
 };

@@ -11,7 +11,7 @@ const ModalTolerie = ({ products, check }) => {
     description: '',
     image: '',
   });
-  const user = useSelector(state => state.auth.user)
+  const user = useSelector(state => state.auth.user);
   const [detailDevis, setDetailDevis] = useState({
     name: `${user.username} ${user.lastname}`,
     type: '',
@@ -21,15 +21,15 @@ const ModalTolerie = ({ products, check }) => {
     peinture: '',
     conception: '',
   });
-  const [files, setFiles] = useState([])
+  const [files, setFiles] = useState([]);
 
   const handleChange = e => {
     setDetailDevis({ ...detailDevis, [e.target.name]: e.target.type });
-    console.log('first',detailDevis);
+    console.log('first', detailDevis);
   };
   const handleChangee = e => {
     setDetailDevis({ ...detailDevis, [e.target.name]: e.target.value });
-    console.log('second',detailDevis);
+    console.log('second', detailDevis);
   };
 
   //   const handleSubmit = e => {
@@ -46,12 +46,11 @@ const ModalTolerie = ({ products, check }) => {
     setShow(true);
     setInput(products);
   };
-  const handleSubmit = (e) => {
-    e.preventDefault()    
-    console.log('handleSubmit',files,detailDevis)
-    dispatch(devisInput(detailDevis,files))
-  }
-  
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log('handleSubmit', files, detailDevis);
+    dispatch(devisInput(detailDevis, files));
+  };
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -75,82 +74,65 @@ const ModalTolerie = ({ products, check }) => {
           </Modal.Header>
           <Modal.Body>
             <Form onSubmit="{handleSubmit}">
-              <InputGroup className="mb-3">
-                <SplitButton
-                  className="dropDownButton"
-                  variant="outline-secondary"
-                  title="Choix du types :"
-                  id="segmented-button-dropdown-1"
-                >
-                     <Dropdown.Item className="dropDownButton" name="type" type="Découpe" onClick={handleChange}>
-                     Découpe
-                  </Dropdown.Item>
-           
-                  <Dropdown.Divider />
-                  <Dropdown.Item className="dropDownButton" name="type" type="Pliage" onClick={handleChange}>
-                  Pliage
-                  </Dropdown.Item>
-                
-                  <Dropdown.Divider />
-                  <Dropdown.Item className="dropDownButton" name="type" type="Découpe et pliage" onClick={handleChange}>
-                  Découpe et pliage
-                  </Dropdown.Item>
-                  
-                </SplitButton>
-                {/* <FormControl aria-label="Text input with dropdown button" /> */}
-              </InputGroup>
-              <InputGroup className="mb-3">
-              <SplitButton className="dropDownButton" variant="outline-secondary" title="Peinture" id="segmented-button-dropdown-1">
-                  <Dropdown.Item className="dropDownButton" name="peinture" type="Avec peinture" onClick={handleChange}>
-                    Avec peinture
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-
-                  <Dropdown.Item className="dropDownButton" name="peinture" type="Sans peinture" onClick={handleChange}>
-                    Sans peinture
-                  </Dropdown.Item>
-                </SplitButton>
-              </InputGroup>
-              <div className="mb-3">
-                <SplitButton
-                  className="dropDownButton"
-                  variant="outline-secondary"
-                  title="Choix du matériau :"
-                  id="segmented-button-dropdown-1"
-                >
-                    <Dropdown.Item className="dropDownButton" name="materiau" type="Tôle 2mm" onClick={handleChange}>
-                    Tôle 2mm
-                  </Dropdown.Item>
-                  
-                  <Dropdown.Divider />
-                  <Dropdown.Item className="dropDownButton" name="materiau" type="Tôle galvanisée 2mm" onClick={handleChange}>
-                  Tôle galvanisée 2mm
-                  </Dropdown.Item>
-                  
-                </SplitButton>
-                {/* <FormControl aria-label="Text input with dropdown button" /> */}
+              <div className="row">
+                <div className="col-6">
+                  <label>Choix du type :</label>
+                </div>
+                <div className="col-6">
+                  <select name="type" onChange={handleChangee}>
+                    <option></option>
+                    <option>Découpe</option>
+                    <option>Pliage</option>
+                    <option>Découpe et pliage</option>
+                  </select>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-6">
+                  <label>Peinture :</label>
+                </div>
+                <div className="col-6">
+                  <select name="peinture" onChange={handleChangee}>
+                    <option></option>
+                    <option>Avec peinture</option>
+                    <option>Sans peinture</option>
+                  </select>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-6">
+                  <label>Choix du matériau :</label>
+                </div>
+                <div className="col-6">
+                  <select name="materiau" onChange={handleChangee}>
+                    <option></option>
+                    <option>Tôle 2mm</option>
+                    <option>Tôle galvanisée 2mm</option>
+                  </select>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-6">
+                  <label>La conception :</label>
+                </div>
+                <div className="col-6">
+                  <select name="conception" onChange={handleChangee}>
+                    <option></option>
+                    <option>Avec conception</option>
+                    <option>Sans conception</option>
+                  </select>
+                </div>
               </div>
 
-              <InputGroup className="mb-3">
-              <SplitButton
-                  className="dropDownButton"
-                  variant="outline-secondary"
-                  title="La conception :"
-                  id="segmented-button-dropdown-1"
-                >
-                  <Dropdown.Item className="dropDownButton" name="conception" type="Avec conception" onClick={handleChange}>
-                    Avec conception
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Item className="dropDownButton" name="conception" type="Sans conception" onClick={handleChange}>
-                    Sans conception
-                  </Dropdown.Item>
-                </SplitButton>
-              </InputGroup>
               <Form.Group>
                 <Form.Label>Epaisseur :</Form.Label>
-                <Form.Control type="number" placeholder="Chiffre en mm ..." name="epaisseur" value={detailDevis.epaisseur}
-                  onChange={handleChangee}/>
+                <Form.Control
+                  type="number"
+                  placeholder="Chiffre en mm ..."
+                  name="epaisseur"
+                  value={detailDevis.epaisseur}
+                  onChange={handleChangee}
+                />
               </Form.Group>
               <Form.Group>
                 <Form.Label>Quantité :</Form.Label>
@@ -164,11 +146,7 @@ const ModalTolerie = ({ products, check }) => {
               </Form.Group>
               <Form.Group>
                 <Form.Label>upload files :</Form.Label>
-                <Form.Control
-                  type="file"
-                  onChange={(e)=>setFiles(e.target.files)}
-                  multiple
-                />
+                <Form.Control type="file" onChange={e => setFiles(e.target.files)} multiple />
               </Form.Group>
               <Form.Group>
                 <Form.Label>user Name :</Form.Label>

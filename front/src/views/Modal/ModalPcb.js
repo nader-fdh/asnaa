@@ -12,7 +12,7 @@ const ModalEdit = ({ products, check }) => {
     description: '',
     image: '',
   });
-  const user = useSelector(state => state.auth.user)
+  const user = useSelector(state => state.auth.user);
   const [detailDevis, setDetailDevis] = useState({
     name: `${user.username} ${user.lastname}`,
     type: '',
@@ -22,15 +22,15 @@ const ModalEdit = ({ products, check }) => {
     peinture: '',
     conception: '',
   });
-  const [files, setFiles] = useState([])
+  const [files, setFiles] = useState([]);
 
   const handleChange = e => {
     setDetailDevis({ ...detailDevis, [e.target.name]: e.target.type });
-    console.log('first',detailDevis);
+    console.log('first', detailDevis);
   };
   const handleChangee = e => {
     setDetailDevis({ ...detailDevis, [e.target.name]: e.target.value });
-    console.log('second',detailDevis);
+    console.log('second', detailDevis);
   };
   //   const handleSubmit = e => {
   //     e.preventDefault();
@@ -46,12 +46,11 @@ const ModalEdit = ({ products, check }) => {
     setShow(true);
     setInput(products);
   };
-  const handleSubmit = (e) => {
-    e.preventDefault()    
-    console.log('handleSubmit',files,detailDevis)
-    dispatch(devisInput(detailDevis,files))
-  }
-  
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log('handleSubmit', files, detailDevis);
+    dispatch(devisInput(detailDevis, files));
+  };
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -75,60 +74,53 @@ const ModalEdit = ({ products, check }) => {
           </Modal.Header>
           <Modal.Body>
             <Form onSubmit="{handleSubmit}">
-              <InputGroup className="mb-3">
-                <SplitButton
-                  className="dropDownButton"
-                  variant="outline-secondary"
-                  title="Type de la carte :"
-                  id="segmented-button-dropdown-1"
-                >
-                  <Dropdown.Item className="dropDownButton" name="type" type="Simple face" onClick={handleChange}>
-                  Simple face
-                  </Dropdown.Item>
-                 
-                  <Dropdown.Divider />
-                  <Dropdown.Item className="dropDownButton" name="type" type="Double face" onClick={handleChange}>
-                  Double face
-                  </Dropdown.Item>
-                  <Dropdown.Item href="#">Double face</Dropdown.Item>
-                </SplitButton>
-                {/* <FormControl aria-label="Text input with dropdown button" /> */}
-              </InputGroup>
-              <InputGroup className="mb-3">
-                <SplitButton
-                  className="dropDownButton"
-                  variant="outline-secondary"
-                  title="Les composants :"
-                  id="segmented-button-dropdown-1"
-                >
-                   <Dropdown.Item className="dropDownButton" name="peinture" type="Avec composants" onClick={handleChange}>
-                   Avec composants
-                  </Dropdown.Item>
-                 
-                  <Dropdown.Divider />
-                  <Dropdown.Item className="dropDownButton" name="peinture" type="Sans composants" onClick={handleChange}>
-                  Sans composants
-                  </Dropdown.Item>
-                 
-                  
-                </SplitButton>
-                {/* <FormControl aria-label="Text input with dropdown button" /> */}
-              </InputGroup>
-              <div className="mb-3">
-               <SplitButton
-                  className="dropDownButton"
-                  variant="outline-secondary"
-                  title="La conception :"
-                  id="segmented-button-dropdown-1"
-                >
-                  <Dropdown.Item className="dropDownButton" name="conception" type="Avec conception" onClick={handleChange}>
-                    Avec conception
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Item className="dropDownButton" name="conception" type="Sans conception" onClick={handleChange}>
-                    Sans conception
-                  </Dropdown.Item>
-                </SplitButton>
+              <div className="row">
+                <div className="col-6">
+                  <label>Type de la carte :</label>
+                </div>
+                <div className="col-6">
+                  <select name="type" onChange={handleChangee}>
+                    <option></option>
+                    <option>Simple face</option>
+                    <option>Double face</option>
+                  </select>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-6">
+                  <label>Type de la carte :</label>
+                </div>
+                <div className="col-6">
+                  <select name="type" onChange={handleChangee}>
+                    <option></option>
+                    <option>Simple face</option>
+                    <option>Double face</option>
+                  </select>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-6">
+                  <label>Les composants :</label>
+                </div>
+                <div className="col-6">
+                  <select name="peinture" onChange={handleChangee}>
+                    <option></option>
+                    <option>Avec composants</option>
+                    <option>Sans composants</option>
+                  </select>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-6">
+                  <label>La conception :</label>
+                </div>
+                <div className="col-6">
+                  <select name="conception" onChange={handleChangee}>
+                    <option></option>
+                    <option>Avec conception</option>
+                    <option>Sans conception</option>
+                  </select>
+                </div>
               </div>
 
               <Form.Group>
@@ -143,11 +135,7 @@ const ModalEdit = ({ products, check }) => {
               </Form.Group>
               <Form.Group>
                 <Form.Label>upload files :</Form.Label>
-                <Form.Control
-                  type="file"
-                  onChange={(e)=>setFiles(e.target.files)}
-                  multiple
-                />
+                <Form.Control type="file" onChange={e => setFiles(e.target.files)} multiple />
               </Form.Group>
               <Form.Group>
                 <Form.Label>user Name :</Form.Label>

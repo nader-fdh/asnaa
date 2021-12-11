@@ -105,7 +105,7 @@ function BoardUser(props) {
                     routes={routes}
                     logo={{
                       outterLink: 'https://www.creative-tim.com/',
-                      text: 'Creative Tim',
+                      text: 'ASSNAA',
                       imgSrc: logo,
                     }}
                     toggleSidebar={toggleSidebar}

@@ -1,89 +1,89 @@
-import React, { Component } from 'react';
-import sectiondata from '../../data/sections.json';
+import React, { Component, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Card, CardBody, CardHeader, CardTitle, Col, Row, Table } from 'reactstrap';
+import { getDemandeAchat } from '../../actions/demandeAchat';
 
-class Team extends Component {
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import ModalViewDemandeAchats from './ModalViewDemandeAchats';
 
-    render() {
-        let publicUrl = process.env.PUBLIC_URL+'/'
-        let imgattr = 'image'
-        let customclass = this.props.customclass ? this.props.customclass : ''
+const DemandeAchat = () => {
+  const demandeAchat = useSelector(state => state.products.demandeAchats);
+  const dispatch = useDispatch();
+  console.log('aaa', demandeAchat);
+  useEffect(() => {
+    dispatch(getDemandeAchat());
+  }, []);
+  const [modalShow, setModalShow] = React.useState(false);
 
-    return <div>
-            <div className={ "sba-pricing-area "+customclass }>
-              <div className="container">
-                <div className="row justify-content-center">
-                  <div className="col-xl-6 col-lg-9">
-                    <div className="section-title text-center">
-                      <h2 className="title">
-                        { sectiondata.pricingtable.sectiontitle } <span>{sectiondata.pricingtable.sectiontitle_color}</span>
-                      </h2>
-                      <p>
-                       {sectiondata.teampage.short_description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="row custom-gutters-20">
-                    {sectiondata.pricingtable.tables.map( ( item, i ) => 
-                        <div key={i} className="col-xl-3 col-sm-6">
-                            <div className="single-pricing text-center">
-                                <h6 className="title">{item.title}</h6>
-                                <div className="thumb">
-                                    <img src={publicUrl+item.icon} alt={imgattr} />
-                                </div>
-                                <h3 className="price">{item.price} <span>{item.duration}</span></h3>
-                                <ul>
-                                {item.features.map( ( feature, i  ) =>
-                                 <li key={i}>{feature}</li>
-                                )}
-                                </ul>
-                                <a className="btn btn-white btn-rounded" href={item.url}>Get Start</a>
-                            </div>
-                        </div>
-                    )}
+  return (
+    <div>
+      <div className="pricing-page-area pd-top-112">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-xl-6">
+              <div className="section-title text-center">
+                <h2 className="title">
+                  Demandes <span>D'achat</span>
+                </h2>
 
-                </div>
+                <p>
+                  dsvsdvsfvndw,cknhdjknhjcjgfhdjthrhfdrhtuèuftyyrtygshdjrftgfjsdxwhgvrdktfgludvgefbkhhdftufly-ytfcghufykfjhrfhdh;nvdfgrtujgfnhbe{' '}
+                </p>
               </div>
             </div>
-            <div className="pricing-page-area pd-top-112">
-              <div className="container">
-                <div className="row justify-content-center">
-                  <div className="col-xl-6">
-                    <div className="section-title text-center">
-                      <h2 className="title">
-                        { sectiondata.pricingtable.sectiontitle } <span>{sectiondata.pricingtable.sectiontitle_color}</span>
-                      </h2>
-                      <p>
-                       {sectiondata.teampage.short_description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="row no-gutters justify-content-center">
-                 {sectiondata.pricingtablev2.tables.map( ( item, i ) => 
-                    <div key={ i } className="col-xl-3 col-lg-4 col-sm-6">
-                      <div className="single-pricing text-center">
-                        <h6 className="title">{item.title}</h6>
-                        <div className="thumb">
-                          <img src={publicUrl+item.icon} alt={imgattr} />
-                        </div>
-                        <h3 className="price">
-                          { item.price } <span>{ item.duration }</span>
-                        </h3>
-                        <ul>
-                           {item.features.map( ( feature, i  ) =>
-                                 <li key={i}>{feature}</li>
-                            )}
-                        </ul>
-                        <a className="btn btn-white btn-rounded" href={item.url}>Get Start</a>
-                      </div>
-                    </div>
-                   )}
-                </div>
-              </div>
-            </div>
+          </div>
         </div>
-    }
-}
+      </div>
+      <div className="content">
+        <Row>
+          <Col lg="12" md="12">
+            <Card>
+              <CardHeader>
+                <CardTitle tag="h4">Liste des demandes d'achats</CardTitle>
+              </CardHeader>
+              <CardBody>
+                <Table className="tablesorter" responsive>
+                  <thead className="text-primary">
+                    <tr>
+                      <th>Nom et Prénom</th>
+                      <th>Adresse</th>
+                      <th>Code Postal</th>
+                      <th>Numéro de telephone</th>
+                      <th>E-mail</th>
+                      <th className="text-center">Pro ou Particulier</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {demandeAchat != null
+                      ? demandeAchat.map(el => (
+                          <tr>
+                            <td>
+                              {el.firstName}-{el.lastName}
+                            </td>
+                            <td> {el.adress} </td>
+                            <td> {el.codePostal} </td>
+                            <td> {el.phoneNumber} </td>
+                            <td>{el.email}</td>
+                            <td className="text-center " onClick={() => setModalShow(true)} style={{ cursor: 'pointer' }}>
+                              <ModalViewDemandeAchats
+                                show={modalShow}
+                                products={el.productId}
+                                totel={el.total}
+                                onHide={() => setModalShow(false)}
+                              />
+                            </td>
+                          </tr>
+                        ))
+                      : true}
+                  </tbody>
+                </Table>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+      </div>
+    </div>
+  );
+};
 
-export default Team
+export default DemandeAchat;

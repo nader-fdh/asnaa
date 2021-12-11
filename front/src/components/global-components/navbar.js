@@ -7,6 +7,7 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import './nav.css';
 import { useStateValue } from '../../StateProvider';
 import Popup from '../shop-components/popup';
+import Subtotal from '../shop-components/Subtotal';
 
 const Navbar = () => {
   let publicUrl = process.env.PUBLIC_URL + '/';
@@ -20,6 +21,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const [{ basket, user }, dispatchb] = useStateValue();
   console.log('eagaegag', basket);
+
   const [isOpen, setIsOpen] = useState(false);
 
   const togglePopup = () => {
@@ -90,6 +92,13 @@ const Navbar = () => {
                 <li style={{ fontSize: '13px' }}>
                   <Link to="/register">S'inscrire</Link>
                 </li>
+                <li>
+                  <div className="header_optionBasket">
+                    <div>{/* <Subtotal p="price" /> */}</div>
+                    <ShoppingBasketIcon onClick={togglePopup} />
+                    <span className="header_optionLineTow header_basketCount"> {basket?.length}</span>
+                  </div>
+                </li>
               </ul>
             </div>
           ) : (
@@ -154,13 +163,21 @@ const Navbar = () => {
                     </NavLink>
                   </DropdownMenu>
                 </UncontrolledDropdown>
+                <li>
+                  <div className="header_optionBasket">
+                    <div>{/* <Subtotal p="price" /> */}</div>
+                    <ShoppingBasketIcon onClick={togglePopup} />
+                    <span className="header_optionLineTow header_basketCount"> {basket?.length}</span>
+                  </div>
+                </li>
               </ul>
             </div>
           )}
-          <div className="header_optionBasket">
+          {/* <div className="header_optionBasket">
+           
             <ShoppingBasketIcon onClick={togglePopup} />
             <span className="header_optionLineTow header_basketCount"> {basket?.length}</span>
-          </div>
+          </div> */}
         </div>
       </nav>
     </div>

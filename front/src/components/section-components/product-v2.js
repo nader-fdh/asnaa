@@ -8,6 +8,7 @@ import { Button } from 'reactstrap';
 import ModalEdit from './Modal';
 import { getProduct, deleteProduct } from '../../actions/productAction';
 import { getDevis } from '../../actions/devisAction';
+import './ModalViewDemandeAchats.css';
 
 const Product = () => {
   const dispatch = useDispatch();
@@ -34,73 +35,33 @@ const Product = () => {
                     <h2 className="title">
                       Product <span>fabnation</span>
                     </h2>
-                    <p>aaaa</p>
+                    <p>
+                      <ModalEdit check={false} />
+                    </p>
                   </div>
                 </div>
               </div>
-              <div className="row custom-gutters-16">
-                <div key="" className="col-lg-3 col-sm-6">
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexWrap: 'wrap',
-                      flexDirection: 'row',
-                      margin: '10px',
-                    }}
-                  >
-                    {products != null
-                      ? products.map(el => (
-                          <div
-                            style={{
-                              flexDirection: 'row',
-                              margin: '20px',
-                            }}
-                            className="single-shop style-two"
-                          >
-                            <Button onClick={() => dispatch(deleteProduct(el._id))}>
-                              <HighlightOffIcon />
-                            </Button>
-                            <div className="thumb">
-                              <img src={el.image} alt="" />
-                              <div className="cart-btn">
-                                <div className="cart-btn-wrap">
-                                  <ModalEdit products={el} check={true} />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="content">
-                              <Link to="/admin/icons">{el.name}</Link>
-                              <div className="price">
-                                <span>
-                                  <span>{el.description}</span> <br></br>
-                                  <span>{el.prix}</span> <br></br>
-                                  <span> Created at {el.createdAt}</span>
-                                </span>
-
-                                {/* <del>999995555</del> */}
-                              </div>
-                            </div>
-                          </div>
-                        ))
-                      : true}
-
-                    <div style={{ margin: '20px' }} className="single-shop style-two">
-                      <div className="thumb">
-                        <AddIcon />
-                        <div className="cart-btn">
-                          <div className="cart-btn-wrap" style={{ marginBottom: '100px' }}>
-                            <ModalEdit check={false} />
-                          </div>
+              <div className="row displayProducts">
+                {products != null
+                  ? products.map(el => (
+                      <div className="cardProd">
+                        <img src={el.image} />
+                        <div className="cardProd-body">
+                          <h2>
+                            {el.name}: Prix {el.prix}DT
+                          </h2>
+                          <p>{el.description}</p>
+                          <h5>{el.prix} DT</h5>
+                        </div>
+                        <div className="cardProd-footer">
+                          <ModalEdit products={el} check={true} />
+                          <p className="float-right supprimer" onClick={() => dispatch(deleteProduct(el._id))}>
+                            Supprimer <HighlightOffIcon />
+                          </p>
                         </div>
                       </div>
-                      <div className="content">
-                        <div className="price">
-                          <span>Add a product..................................</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                    ))
+                  : true}
               </div>
             </div>
           </div>

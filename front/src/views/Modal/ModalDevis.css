@@ -1,3 +1,6 @@
 .dropDownButton {
   background-color: aliceblue;
 }
+.select {
+  border-radius: 6px;
+}

@@ -27,8 +27,8 @@
   content: 'x';
   cursor: pointer;
   position: fixed;
-  right: calc(15% - 30px);
-  top: calc(100vh - 85vh - 33px);
+  right: calc(15% + 10px);
+  top: calc(100vh - 78vh - 20px);
   background: #ededed;
   width: 25px;
   height: 25px;
@@ -38,10 +38,12 @@
   border: 1px solid #999;
   font-size: 20px;
 }
+
 .card-horizontal {
   display: flex;
   flex: 1 1 auto;
 }
+
 .media-left {
   width: 150px !important;
 }
@@ -51,10 +53,12 @@
   padding-top: -100px !important;
   margin-top: -250px !important;
 }
+
 .paddinTop {
   /* margin-top: -50px !important; */
   vertical-align: top;
 }
+
 .testTdTab {
   margin-top: -500px !important;
   padding-top: -500px !important;
@@ -67,6 +71,7 @@
   margin: 20px !important;
   max-height: 140px !important;
 }
+
 .cardSinglePro {
   display: flex;
   flex-direction: row;
@@ -76,6 +81,7 @@
   margin: 20px;
   max-height: max-content !important;
 }
+
 .imageStyle img {
   height: 140px !important;
   margin-top: -20px !important;
@@ -87,21 +93,25 @@
 .imageStyle p {
   color: black !important;
 }
+
 .imageStyle p:hover {
   color: black !important;
   cursor: context-menu;
 }
+
 .imageStyle span h3 {
   color: black;
   font-size: 20px !important;
   font-weight: 400;
 }
+
 .imageStyle span h3:hover {
   color: green;
   font-size: 20px !important;
   font-weight: 400;
   cursor: context-menu !important;
 }
+
 .basketContent {
   display: flex !important;
   flex-direction: row !important;
@@ -110,14 +120,17 @@
 .firstSection {
   width: 60%;
 }
+
 .secondSection {
   width: 40%;
 }
+
 .total-shapping-area {
   padding: 10px;
   margin-top: 20px;
   /* box-shadow: 1px 1px 1px 1px #cccbcb; */
 }
+
 .total-shapping-area-wrap {
   margin-bottom: 180px !important;
 }

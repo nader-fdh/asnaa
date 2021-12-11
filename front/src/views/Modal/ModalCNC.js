@@ -5,9 +5,9 @@ import { devisInput } from '../../actions/devisAction';
 import './ModalDevis.css';
 
 const ModalEdit = ({ products, check }) => {
-  const user = useSelector(state => state.auth.user)
+  const user = useSelector(state => state.auth.user);
 
-console.log(user.username)
+  console.log(user.username);
   const [show, setShow] = useState(false);
   const [input, setInput] = useState({
     name: '',
@@ -23,15 +23,16 @@ console.log(user.username)
     peinture: '',
     conception: '',
   });
-  const [files, setFiles] = useState([])
+  const [files, setFiles] = useState([]);
 
   const handleChange = e => {
     setDetailDevis({ ...detailDevis, [e.target.name]: e.target.type });
-    console.log('first',detailDevis);
+    console.log('first', detailDevis);
   };
   const handleChangee = e => {
+    e.preventDefault();
     setDetailDevis({ ...detailDevis, [e.target.name]: e.target.value });
-    console.log('second',detailDevis);
+    console.log('second', detailDevis);
   };
 
   //   const handleSubmit = e => {
@@ -48,12 +49,11 @@ console.log(user.username)
     setShow(true);
     setInput(products);
   };
-  const handleSubmit = (e) => {
-    e.preventDefault()    
-    console.log('handleSubmit',files,detailDevis)
-    dispatch(devisInput(detailDevis,files))
-  }
-  
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log('handleSubmit', files, detailDevis);
+    dispatch(devisInput(detailDevis, files));
+  };
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -67,7 +67,7 @@ console.log(user.username)
           </Button>
         ) : (
           <Button variant="primary" onClick={handleShow}>
-           ...
+            ...
           </Button>
         )}
 
@@ -77,76 +77,54 @@ console.log(user.username)
           </Modal.Header>
           <Modal.Body>
             <Form onSubmit="{handleSubmit}">
-              <InputGroup className="mb-3">
-                <SplitButton
-                  className="dropDownButton"
-                  variant="outline-secondary"
-                  title="Choix du type :"
-                  id="segmented-button-dropdown-1"
-                >
-                  <Dropdown.Item className="dropDownButton" name="type" type="Usinage" onClick={handleChange}>
-                    Usinage
-                  </Dropdown.Item>
-                 
-                  <Dropdown.Divider />
-
-                  <Dropdown.Item className="dropDownButton" name="type" type="Gravure" onClick={handleChange}>
-                    Gravure
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Item name="type" type="Usinage et gravure" onClick={handleChange}>
-                    Usinage et gravure
-                  </Dropdown.Item>
-                </SplitButton>
-                {/* <FormControl aria-label="Text input with dropdown button" /> */}
-              </InputGroup>
-              <InputGroup className="mb-3">
-                <SplitButton className="dropDownButton" variant="outline-secondary" title="Peinture" id="segmented-button-dropdown-1">
-                  <Dropdown.Item className="dropDownButton" name="peinture" type="Avec peinture" onClick={handleChange}>
-                    Avec peinture
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-
-                  <Dropdown.Item className="dropDownButton" name="peinture" type="Sans peinture" onClick={handleChange}>
-                    Sans peinture
-                  </Dropdown.Item>
-                </SplitButton>
-                {/* <FormControl aria-label="Text input with dropdown button" /> */}
-              </InputGroup>
-              <InputGroup className="mb-3">
-                <SplitButton
-                  className="dropDownButton"
-                  variant="outline-secondary"
-                  title="Choix de matériau :"
-                  id="segmented-button-dropdown-1"
-                >
-                  <Dropdown.Item className="dropDownButton" name="materiau" type="Bois" onClick={handleChange}>
-                    Bois
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-
-                  <Dropdown.Item className="dropDownButton" name="materiau" type="Alucobond" onClick={handleChange}>
-                    Alucobond
-                  </Dropdown.Item>
-                </SplitButton>
-                {/* <FormControl aria-label="Text input with dropdown button" /> */}
-              </InputGroup>
-              <div className="mb-3">
-                <SplitButton
-                  className="dropDownButton"
-                  variant="outline-secondary"
-                  title="La conception :"
-                  id="segmented-button-dropdown-1"
-                >
-                  <Dropdown.Item className="dropDownButton" name="conception" type="Avec conception" onClick={handleChange}>
-                    Avec conception
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Item className="dropDownButton" name="conception" type="Sans conception" onClick={handleChange}>
-                    Sans conception
-                  </Dropdown.Item>
-                </SplitButton>
-                {/* <FormControl aria-label="Text input with dropdown button" /> */}
+              <div className="row">
+                <div className="col-6">
+                  <label>Choix du type :</label>
+                </div>
+                <div className="col-6">
+                  <select name="type" onChange={handleChangee}>
+                    <option></option>
+                    <option>Usinage</option>
+                    <option>Gravure</option>
+                    <option>Usinage et gravure</option>
+                  </select>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-6">
+                  <label>Peinture :</label>
+                </div>
+                <div className="col-6">
+                  <select name="peinture" onChange={handleChangee}>
+                    <option></option>
+                    <option> Avec peinture</option>
+                    <option> Sans peinture</option>
+                  </select>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-6">
+                  <label>Choix de matériau :</label>
+                </div>
+                <div className="col-6">
+                  <select name="materiau" onChange={handleChangee}>
+                    <option></option>
+                    <option> Bois</option>
+                    <option> Alucobond</option>
+                  </select>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-6">
+                  <label>La conception :</label>
+                </div>
+                <div className="col-6">
+                  <select name="conception" onChange={handleChangee}>
+                    <option></option>
+                    <option> Avec conception</option>
+                    <option> Sans conception</option>
+                  </select>
+                </div>
               </div>
 
               <Form.Group>
@@ -161,11 +139,7 @@ console.log(user.username)
               </Form.Group>
               <Form.Group>
                 <Form.Label>upload files :</Form.Label>
-                <Form.Control
-                  type="file"
-                  onChange={(e)=>setFiles(e.target.files)}
-                  multiple
-                />
+                <Form.Control type="file" onChange={e => setFiles(e.target.files)} multiple />
               </Form.Group>
               <Form.Group>
                 <Form.Label>user Name :</Form.Label>
@@ -183,7 +157,6 @@ console.log(user.username)
               <h3>{detailDevis.materiau}</h3>
               <h3>{detailDevis.conception}</h3>
               <h3>{detailDevis.quantité}</h3>
-           
 
               <Button type="submit" onClick={handleSubmit} variant="primary">
                 Save

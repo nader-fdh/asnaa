@@ -15,9 +15,9 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React from 'react';
 // nodejs library that concatenates classes
-import classNames from "classnames";
+import classNames from 'classnames';
 
 // reactstrap components
 import {
@@ -37,33 +37,38 @@ import {
   Modal,
   NavbarToggler,
   ModalHeader,
-} from "reactstrap";
-
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
+import { logout } from '../../actions/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import './AdminNavbar.css';
 function AdminNavbar(props) {
   const [collapseOpen, setcollapseOpen] = React.useState(false);
   const [modalSearch, setmodalSearch] = React.useState(false);
-  const [color, setcolor] = React.useState("navbar-transparent");
+  const [color, setcolor] = React.useState('navbar-transparent');
+  const { user: currentUser } = useSelector(state => state.auth);
+  console.log(currentUser);
   React.useEffect(() => {
-    window.addEventListener("resize", updateColor);
+    window.addEventListener('resize', updateColor);
     // Specify how to clean up after this effect:
     return function cleanup() {
-      window.removeEventListener("resize", updateColor);
+      window.removeEventListener('resize', updateColor);
     };
   });
   // function that adds color white/transparent to the navbar on resize (this is for the collapse)
   const updateColor = () => {
     if (window.innerWidth < 993 && collapseOpen) {
-      setcolor("bg-white");
+      setcolor('bg-white');
     } else {
-      setcolor("navbar-transparent");
+      setcolor('navbar-transparent');
     }
   };
   // this function opens and closes the collapse on small devices
   const toggleCollapse = () => {
     if (collapseOpen) {
-      setcolor("navbar-transparent");
+      setcolor('navbar-transparent');
     } else {
-      setcolor("bg-white");
+      setcolor('bg-white');
     }
     setcollapseOpen(!collapseOpen);
   };
@@ -71,13 +76,17 @@ function AdminNavbar(props) {
   const toggleModalSearch = () => {
     setmodalSearch(!modalSearch);
   };
+  const dispatch = useDispatch();
+  const logOut = () => {
+    dispatch(logout());
+  };
   return (
     <>
-      <Navbar className={classNames("navbar-absolute", color)} expand="lg">
+      <Navbar className={classNames('navbar-absolute', color)} expand="lg">
         <Container fluid>
           <div className="navbar-wrapper">
             <div
-              className={classNames("navbar-toggle d-inline", {
+              className={classNames('navbar-toggle d-inline', {
                 toggled: props.sidebarOpened,
               })}
             >
@@ -87,9 +96,6 @@ function AdminNavbar(props) {
                 <span className="navbar-toggler-bar bar3" />
               </NavbarToggler>
             </div>
-            {/* <NavbarBrand href="#pablo" onClick={(e) => e.preventDefault()}>
-              {props.brandText}
-            </NavbarBrand> */}
           </div>
           <NavbarToggler onClick={toggleCollapse}>
             <span className="navbar-toggler-bar navbar-kebab" />
@@ -98,74 +104,34 @@ function AdminNavbar(props) {
           </NavbarToggler>
           <Collapse navbar isOpen={collapseOpen}>
             <Nav className="ml-auto" navbar>
-              {/* <InputGroup className="search-bar">
-                <Button color="link" onClick={toggleModalSearch}>
-                  <i className="tim-icons icon-zoom-split" />
-                  <span className="d-lg-none d-md-block">Search</span>
-                </Button>
-              </InputGroup> */}
-              {/* <UncontrolledDropdown nav>
-                <DropdownToggle
-                  caret
-                  color="default"
-                  data-toggle="dropdown"
-                  nav
-                >
-                  <div className="notification d-none d-lg-block d-xl-block" />
-                  <i className="tim-icons icon-sound-wave" />
-                  <p className="d-lg-none">Notifications</p>
-                </DropdownToggle>
-                <DropdownMenu className="dropdown-navbar" right tag="ul">
-                  <NavLink tag="li">
-                    <DropdownItem className="nav-item">
-                      Mike John responded to your email
-                    </DropdownItem>
-                  </NavLink>
-                  <NavLink tag="li">
-                    <DropdownItem className="nav-item">
-                      You have 5 more tasks
-                    </DropdownItem>
-                  </NavLink>
-                  <NavLink tag="li">
-                    <DropdownItem className="nav-item">
-                      Your friend Michael is in town
-                    </DropdownItem>
-                  </NavLink>
-                  <NavLink tag="li">
-                    <DropdownItem className="nav-item">
-                      Another notification
-                    </DropdownItem>
-                  </NavLink>
-                  <NavLink tag="li">
-                    <DropdownItem className="nav-item">
-                      Another one
-                    </DropdownItem>
-                  </NavLink>
-                </DropdownMenu>
-              </UncontrolledDropdown> */}
               <UncontrolledDropdown nav>
-                <DropdownToggle
-                  caret
-                  color="default"
-                  nav
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <div className="photo">
-                    <img alt="..." src="" />
-                  </div>
+                <DropdownToggle caret color="default" nav onClick={e => e.preventDefault()}>
+                  <div className="photo">{/* <img alt="..." src="../../assets/img/profilImage.jpg" /> */}</div>
                   <b className="caret d-none d-lg-block d-xl-block" />
-                  <p className="d-lg-none">Log out</p>
+                  <p className="UserNameDrop">{currentUser.username}</p>
                 </DropdownToggle>
                 <DropdownMenu className="dropdown-navbar" right tag="ul">
                   <NavLink tag="li">
-                    <DropdownItem className="nav-item">Profile</DropdownItem>
+                    <DropdownItem className="nav-item">
+                      <Link to={'/profile'} className="nav-link">
+                        Profile
+                      </Link>
+                    </DropdownItem>
                   </NavLink>
                   <NavLink tag="li">
-                    <DropdownItem className="nav-item">Settings</DropdownItem>
+                    <DropdownItem className="nav-item">
+                      <Link to={'/'} className="nav-link">
+                        Acceuil
+                      </Link>
+                    </DropdownItem>
                   </NavLink>
                   <DropdownItem divider tag="li" />
                   <NavLink tag="li">
-                    <DropdownItem className="nav-item">Log out</DropdownItem>
+                    <DropdownItem className="nav-item">
+                      <Link to={'/'} className="nav-link" onClick={logOut}>
+                        LogOut
+                      </Link>
+                    </DropdownItem>
                   </NavLink>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -174,18 +140,10 @@ function AdminNavbar(props) {
           </Collapse>
         </Container>
       </Navbar>
-      <Modal
-        modalClassName="modal-search"
-        isOpen={modalSearch}
-        toggle={toggleModalSearch}
-      >
+      <Modal modalClassName="modal-search" isOpen={modalSearch} toggle={toggleModalSearch}>
         <ModalHeader>
           <Input placeholder="SEARCH" type="text" />
-          <button
-            aria-label="Close"
-            className="close"
-            onClick={toggleModalSearch}
-          >
+          <button aria-label="Close" className="close" onClick={toggleModalSearch}>
             <i className="tim-icons icon-simple-remove" />
           </button>
         </ModalHeader>

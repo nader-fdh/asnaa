@@ -30,7 +30,7 @@ import { chartExample1, chartExample2, chartExample3, chartExample4 } from '../v
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from '../actions/productAction.js';
 
-function Dashboard(props) {
+function DashboardUser(props) {
   const [bigChartData, setbigChartData] = React.useState('data1');
   const setBgChartData = name => {
     setbigChartData(name);
@@ -105,4 +105,4 @@ function Dashboard(props) {
   );
 }
 
-export default Dashboard;
+export default DashboardUser;

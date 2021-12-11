@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // react plugin for creating notifications over the dashboard
@@ -15,29 +14,37 @@ import { Link } from '@material-ui/core';
 
 function Notifications() {
   const notificationAlertRef = React.useRef(null);
-const devis = useSelector(state => state.products)
-const oneDevis = devis.devis
-if (oneDevis) {
-  
-  console.log("ddddd",oneDevis.file)
-}
+  const devis = useSelector(state => state.products);
+  const oneDevis = devis.devis;
+  if (oneDevis) {
+    console.log('ddddd', oneDevis.file);
+  }
 
   return (
     <>
+      <div className="pricing-page-area pd-top-112">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-xl-6">
+              <div className="section-title text-center">
+                <h2 className="title">
+                  Demande <span>De devis</span>
+                </h2>
+
+                <p>
+                  dsvsdvsfvndw,cknhdjknhjcjgfhdjthrhfdrhtuèuftyyrtygshdjrftgfjsdxwhgvrdktfgludvgefbkhhdftufly-ytfcghufykfjhrfhdh;nvdfgrtujgfnhbe{' '}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="content">
         <Row>
           <Col md="12">
             <Card>
               <CardBody>
                 <div className="places-buttons">
-                  <Row>
-                    <Col className="ml-auto mr-auto text-center" md="6">
-                      <CardTitle tag="h4">
-                        Demande de devis
-                        <p className="category">Click et remplir le fomulaire</p>
-                      </CardTitle>
-                    </Col>
-                  </Row>
                   <Row>
                     <Col className="ml-auto mr-auto" lg="8">
                       <Row>
@@ -148,7 +155,6 @@ if (oneDevis) {
                             </div>
                           </div>
                         </Col>
-                      
                       </Row>
                     </Col>
                   </Row>
@@ -173,19 +179,18 @@ if (oneDevis) {
                       <th>file </th>
                     </tr>
                   </thead>
-                  {oneDevis ?   <tbody>
-                  
-                  <tr>
-                    <td>{oneDevis.name}</td>
-                    <td>{oneDevis.type}</td>
-                    <td>{oneDevis.materiau}</td>
-                    <td>{oneDevis.epaisseur}</td>
-                    <td className="text-center">{oneDevis.quantité}</td>
-                    <td>{oneDevis.file}</td>
-                  </tr>
-                 
-                </tbody> : null}
-                
+                  {oneDevis ? (
+                    <tbody>
+                      <tr>
+                        <td>{oneDevis.name}</td>
+                        <td>{oneDevis.type}</td>
+                        <td>{oneDevis.materiau}</td>
+                        <td>{oneDevis.epaisseur}</td>
+                        <td className="text-center">{oneDevis.quantité}</td>
+                        <td>{oneDevis.file}</td>
+                      </tr>
+                    </tbody>
+                  ) : null}
                 </Table>
               </CardBody>
             </Card>

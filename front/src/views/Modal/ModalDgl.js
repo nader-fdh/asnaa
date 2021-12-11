@@ -73,102 +73,48 @@ const ModalEdit = ({ products, check }) => {
           </Modal.Header>
           <Modal.Body>
             <Form onSubmit="{handleSubmit}">
-              <InputGroup className="mb-3">
-                <SplitButton
-                  className="dropDownButton"
-                  variant="outline-secondary"
-                  title="Choix du type :"
-                  id="segmented-button-dropdown-1"
-                >
-                  <Dropdown.Item className="dropDownButton" name="type" type="Découpe" onClick={handleChange}>
-                    Découpe
-                  </Dropdown.Item>
+              <div className="row">
+                <div className="col-6">
+                  <label>Choix du type :</label>
+                </div>
+                <div className="col-6">
+                  <select name="type" onChange={handleChangee}>
+                    <option></option>
+                    <option>Découpe</option>
+                    <option>Gravure</option>
+                    <option>Découpe et gravure</option>
+                  </select>
+                </div>
+              </div>
 
-                  <Dropdown.Divider />
-
-                  <Dropdown.Item className="dropDownButton" name="type" type="Gravure" onClick={handleChange}>
-                    Gravure
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Item name="type" type="Découpe et gravure" onClick={handleChange}>
-                    Découpe et gravure
-                  </Dropdown.Item>
-                </SplitButton>
-              </InputGroup>
-              {/* <InputGroup className="mb-3">
-                <SplitButton
-                  className="dropDownButton"
-                  variant="outline-secondary"
-                  title="Choix de matériau :"
-                  id="segmented-button-dropdown-1"
-                >
-                  <Dropdown.Item className="dropDownButton" name="materiau" type="Bois" onClick={handleChange}>
-                    Bois
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-
-                  <Dropdown.Item className="dropDownButton" name="materiau" type="Alucobond" onClick={handleChange}>
-                    Alucobond
-                  </Dropdown.Item>
-                </SplitButton>
-              
-              </InputGroup> */}
-              <InputGroup className="mb-3">
-                <SplitButton
-                  className="dropDownButton"
-                  variant="outline-secondary"
-                  title="Choix du matériau :"
-                  id="segmented-button-dropdown-1"
-                >
-                  <Dropdown.Item className="dropDownButton" name="materiau" type="MDF 3mm" onClick={handleChange}>
-                    MDF 3mm
-                  </Dropdown.Item>
-
-                  <Dropdown.Divider />
-                  <Dropdown.Item className="dropDownButton" name="materiau" type=" MDF stratifié 3mm" onClick={handleChange}>
-                    MDF stratifié 3mm
-                  </Dropdown.Item>
-
-                  <Dropdown.Divider />
-                  <Dropdown.Item className="dropDownButton" name="materiau" type="MDF 5mm" onClick={handleChange}>
-                    MDF 5mm
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Item className="dropDownButton" name="materiau" type="MDF stratifié 5mm" onClick={handleChange}>
-                    MDF stratifié 5mm
-                  </Dropdown.Item>
-
-                  <Dropdown.Divider />
-                  <Dropdown.Item className="dropDownButton" name="materiau" type="Plexiglas transparent 3mm" onClick={handleChange}>
-                    Plexiglas transparent 3mm
-                  </Dropdown.Item>
-
-                  <Dropdown.Divider />
-                  <Dropdown.Item className="dropDownButton" name="materiau" type="Plexiglas blanc 3mm" onClick={handleChange}>
-                    Plexiglas blanc 3mm
-                  </Dropdown.Item>
-
-                  <Dropdown.Divider />
-                  <Dropdown.Item className="dropDownButton" name="materiau" type="Plexiglas noir 3mm" onClick={handleChange}>
-                    Plexiglas noir 3mm
-                  </Dropdown.Item>
-                </SplitButton>
-              </InputGroup>
-              <div className="mb-3">
-                <SplitButton
-                  className="dropDownButton"
-                  variant="outline-secondary"
-                  title="La conception :"
-                  id="segmented-button-dropdown-1"
-                >
-                  <Dropdown.Item className="dropDownButton" name="conception" type="Avec conception" onClick={handleChange}>
-                    Avec conception
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Item className="dropDownButton" name="conception" type="Sans conception" onClick={handleChange}>
-                    Sans conception
-                  </Dropdown.Item>
-                </SplitButton>
+              <div className="row">
+                <div className="col-6">
+                  <label>Choix du matériau :</label>
+                </div>
+                <div className="col-6">
+                  <select name="materiau" onChange={handleChangee}>
+                    <option></option>
+                    <option> MDF 3mm</option>
+                    <option> MDF stratifié 3mm</option>
+                    <option>MDF 5mm</option>
+                    <option> MDF stratifié 5mm</option>
+                    <option>Plexiglas transparent 3mm</option>
+                    <option> Plexiglas blanc 3mm</option>
+                    <option> Plexiglas noir 3mm</option>
+                  </select>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-6">
+                  <label>La conception :</label>
+                </div>
+                <div className="col-6">
+                  <select name="conception" onChange={handleChangee}>
+                    <option></option>
+                    <option> Avec conception</option>
+                    <option> sans conception</option>
+                  </select>
+                </div>
               </div>
 
               <Form.Group>

@@ -1,0 +1,13 @@
+.cardWidth {
+  width: 330px !important;
+  margin-left: 10px;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  height: max-content !important;
+}
+.content {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+}

@@ -20,68 +20,64 @@ const Pricing_Table_V2 = () => {
   }, []);
   return (
     <div>
-      {auth.user != null ? (
-        <>
-          <div className="pricing-page-area pd-top-112">
-            <div className="container">
-              <div className="row justify-content-center">
-                <div className="col-xl-6">
-                  <div className="section-title text-center">
-                    <h2 className="title">
-                      All <span>Devis</span>
-                    </h2>
+      <>
+        <div className="pricing-page-area pd-top-112">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-xl-6">
+                <div className="section-title text-center">
+                  <h2 className="title">
+                    All <span>Devis</span>
+                  </h2>
 
-                    <p>
-                      {' '}
-                      dsvsdvsfvndw,cknhdjknhjcjgfhdjthrhfdrhtuèuftyyrtygshdjrftgfjsdxwhgvrdktfgludvgefbkhhdftufly-ytfcghufykfjhrfhdh;nvdfgrtujgfnhbe{' '}
-                    </p>
-                  </div>
+                  <p>
+                    {' '}
+                    dsvsdvsfvndw,cknhdjknhjcjgfhdjthrhfdrhtuèuftyyrtygshdjrftgfjsdxwhgvrdktfgludvgefbkhhdftufly-ytfcghufykfjhrfhdh;nvdfgrtujgfnhbe{' '}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-          {allDevis != null
-            ? allDevis.map(el => (
-                <Col md="12">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle tag="h4">Devis : {el.name}</CardTitle>
-                    </CardHeader>
-                    <CardBody>
-                      <Table className="tablesorter" responsive>
-                        <thead className="text-primary">
-                          <tr>
-                            <th>Type</th>
-                            <th>Materiau</th>
-                            <th>Epaisseur</th>
-                            <th>Peinture </th>
-                            <th>Conception </th>
-                            <th className="text-center">Quantité</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>{el.type}</td>
-                            <td> {el.materiau} </td>
-                            <td> {el.epaisseur} </td>
-                            <td> {el.peinture} </td>
-                            <td> {el.conception} </td>
-                            <td className="text-center"> {el.quantité} </td>
-                          </tr>
-                        </tbody>
-                      </Table>
-                      <a href={el.file}>
-                        <Button variant="primary">Download File</Button>
-                      </a>
-                    </CardBody>
-                  </Card>
-                </Col>
-              ))
-            : true}
-        </>
-      ) : (
-        <h1>You need to login</h1>
-      )}
+        </div>
+        {allDevis != null
+          ? allDevis.map(el => (
+              <Col md="12">
+                <Card>
+                  <CardHeader>
+                    <CardTitle tag="h4">Devis : {el.name}</CardTitle>
+                  </CardHeader>
+                  <CardBody>
+                    <Table className="tablesorter" responsive>
+                      <thead className="text-primary">
+                        <tr>
+                          <th>Type</th>
+                          <th>Materiau</th>
+                          <th>Epaisseur</th>
+                          <th>Peinture </th>
+                          <th>Conception </th>
+                          <th className="text-center">Quantité</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>{el.type}</td>
+                          <td> {el.materiau} </td>
+                          <td> {el.epaisseur} </td>
+                          <td> {el.peinture} </td>
+                          <td> {el.conception} </td>
+                          <td className="text-center"> {el.quantité} </td>
+                        </tr>
+                      </tbody>
+                    </Table>
+                    <a href={el.file}>
+                      <Button variant="primary">Download File</Button>
+                    </a>
+                  </CardBody>
+                </Card>
+              </Col>
+            ))
+          : true}
+      </>
     </div>
   );
 };

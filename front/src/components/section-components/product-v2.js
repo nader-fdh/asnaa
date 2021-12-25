@@ -25,50 +25,46 @@ const Product = () => {
 
   return (
     <div>
-      {auth.user != null ? (
-        <>
-          <div className="shop-area mg-top-110">
-            <div className="container">
-              <div className="row justify-content-center">
-                <div className="col-xl-6 col-lg-9">
-                  <div className="section-title style-two text-center">
-                    <h2 className="title">
-                      Product <span>fabnation</span>
-                    </h2>
-                    <p>
-                      <ModalEdit check={false} />
-                    </p>
-                  </div>
+      <>
+        <div className="shop-area mg-top-110">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-xl-6 col-lg-9">
+                <div className="section-title style-two text-center">
+                  <h2 className="title">
+                    Product <span>fabnation</span>
+                  </h2>
+                  <p>
+                    <ModalEdit check={false} />
+                  </p>
                 </div>
               </div>
-              <div className="row displayProducts">
-                {products != null
-                  ? products.map(el => (
-                      <div className="cardProd">
-                        <img src={el.image} />
-                        <div className="cardProd-body">
-                          <h2>
-                            {el.name}: Prix {el.prix}DT
-                          </h2>
-                          <p>{el.description}</p>
-                          <h5>{el.prix} DT</h5>
-                        </div>
-                        <div className="cardProd-footer">
-                          <ModalEdit products={el} check={true} />
-                          <p className="float-right supprimer" onClick={() => dispatch(deleteProduct(el._id))}>
-                            Supprimer <HighlightOffIcon />
-                          </p>
-                        </div>
+            </div>
+            <div className="row displayProducts">
+              {products != null
+                ? products.map(el => (
+                    <div className="cardProd">
+                      <img src={el.image} />
+                      <div className="cardProd-body">
+                        <h2>
+                          {el.name}: Prix {el.prix}DT
+                        </h2>
+                        <p>{el.description}</p>
+                        <h5>{el.prix} DT</h5>
                       </div>
-                    ))
-                  : true}
-              </div>
+                      <div className="cardProd-footer">
+                        <ModalEdit products={el} check={true} />
+                        <p className="float-right supprimer" onClick={() => dispatch(deleteProduct(el._id))}>
+                          Supprimer <HighlightOffIcon />
+                        </p>
+                      </div>
+                    </div>
+                  ))
+                : true}
             </div>
           </div>
-        </>
-      ) : (
-        <h1>you need to login</h1>
-      )}
+        </div>
+      </>
     </div>
   );
 };

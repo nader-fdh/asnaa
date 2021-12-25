@@ -55,7 +55,6 @@
 }
 
 .paddinTop {
-  /* margin-top: -50px !important; */
   vertical-align: top;
 }
 
@@ -128,7 +127,6 @@
 .total-shapping-area {
   padding: 10px;
   margin-top: 20px;
-  /* box-shadow: 1px 1px 1px 1px #cccbcb; */
 }
 
 .total-shapping-area-wrap {
@@ -137,7 +135,6 @@
 
 .boutton {
   background-color: rgb(219, 223, 219);
-
   padding: 5px 20px;
   cursor: pointer;
   font-weight: 400;
@@ -147,6 +144,7 @@
   border-radius: 5px;
   border: 1px solid gray;
 }
+
 .margin {
   margin-top: 150px;
 }
@@ -154,6 +152,7 @@
 .checkout-form-product {
   overflow: hidden !important;
 }
+
 .media-body {
   flex: none !important;
 }

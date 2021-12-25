@@ -68,44 +68,11 @@ function BoardAdmin(props) {
       }
     );
   }, []);
-
+  console.warn('z--------------', content);
   const location = useLocation();
   const mainPanelRef = React.useRef(null);
   const [sidebarOpened, setsidebarOpened] = React.useState(document.documentElement.className.indexOf('nav-open') !== -1);
-  React.useEffect(() => {
-    if (navigator.platform.indexOf('Win') > -1) {
-      document.documentElement.className += ' perfect-scrollbar-on';
-      document.documentElement.classList.remove('perfect-scrollbar-off');
-      ps = new PerfectScrollbar(mainPanelRef.current, {
-        suppressScrollX: true,
-      });
-      let tables = document.querySelectorAll('.table-responsive');
-      for (let i = 0; i < tables.length; i++) {
-        ps = new PerfectScrollbar(tables[i]);
-      }
-    }
-    // Specify how to clean up after this effect:
-    return function cleanup() {
-      if (navigator.platform.indexOf('Win') > -1) {
-        ps.destroy();
-        document.documentElement.classList.add('perfect-scrollbar-off');
-        document.documentElement.classList.remove('perfect-scrollbar-on');
-      }
-    };
-  });
-  React.useEffect(() => {
-    if (navigator.platform.indexOf('Win') > -1) {
-      let tables = document.querySelectorAll('.table-responsive');
-      for (let i = 0; i < tables.length; i++) {
-        ps = new PerfectScrollbar(tables[i]);
-      }
-    }
-    document.documentElement.scrollTop = 0;
-    document.scrollingElement.scrollTop = 0;
-    if (mainPanelRef.current) {
-      mainPanelRef.current.scrollTop = 0;
-    }
-  }, [location]);
+
   // this function opens and closes the sidebar on small devices
   const toggleSidebar = () => {
     document.documentElement.classList.toggle('nav-open');
@@ -130,7 +97,7 @@ function BoardAdmin(props) {
   };
   return (
     <div>
-      {content === 'Require Admin Role!' ? (
+      {content === 'No token provided!' ? (
         <Errorpage />
       ) : (
         <div>

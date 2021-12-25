@@ -11,6 +11,7 @@ import ModalTolerie from './Modal/ModalTolerie';
 import ModalDgl from './Modal/ModalDgl';
 import ModalCNC from './Modal/ModalCNC';
 import { Link } from '@material-ui/core';
+import './Notifications.css';
 
 function Notifications() {
   const notificationAlertRef = React.useRef(null);
@@ -83,7 +84,7 @@ function Notifications() {
                             className="single-shop style-two"
                           >
                             <div className="thumb">
-                              <img src="" alt="" />
+                              <img src="https://www.nameslook.com/names/tolorie-nameslook.jpg" alt="" />
                               <div className="cart-btn">
                                 <div className="cart-btn-wrap">
                                   <ModalTolerie check={true} />
@@ -108,7 +109,7 @@ function Notifications() {
                             className="single-shop style-two"
                           >
                             <div className="thumb">
-                              <img src="" alt="" />
+                              <img src="https://www.europub.fr/wp-content/uploads/2015/07/gravure-laser.jpg" alt="" />
                               <div className="cart-btn">
                                 <div className="cart-btn-wrap">
                                   <ModalDgl check={true} />
@@ -119,7 +120,6 @@ function Notifications() {
                               <Link to="">Decoupage et gravure laser</Link>
                               <div className="price">
                                 <span>ssss</span>
-                                {/* <del>999995555</del> */}
                               </div>
                             </div>
                           </div>
@@ -139,7 +139,10 @@ function Notifications() {
                             className="single-shop style-two"
                           >
                             <div className="thumb">
-                              <img src="" alt="" />
+                              <img
+                                src="https://image.made-in-china.com/202f0j10zqahpWdJCbui/Alucobond-CNC-Machine-Cutting-Woodworking-CNC-Router-Machine.jpg"
+                                alt=""
+                              />
                               <div className="cart-btn">
                                 <div className="cart-btn-wrap">
                                   <ModalCNC check={true} />

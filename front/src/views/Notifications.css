@@ -1,0 +1,10 @@
+.content {
+  display: flex !important;
+  flex-direction: column !important;
+
+  align-items: center;
+}
+
+.content .price {
+  width: 50%;
+}
